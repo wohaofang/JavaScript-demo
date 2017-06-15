@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		if (window.XMLHttpRequest) {
+			var xhr = new XMLHttpRequest();
+		}else{
+			var xhr =new ActiveXObject("microsoft.XMLHTTP")
+		}
+
+		xhr.open("GET","./demo.json?user=lily&password=12345&t="+new Date().getTime(),true);
+		xhr.send();
+		xhr.onreadystatechange=function(){
+			if (xhr.readyState==4) {
+				if (xhr.status==200) {
+					var json1=xhr.responseText;
+					console.log(json1);
+				}
+			}
+		}
+	</script>
+</body>
+</html>

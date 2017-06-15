@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <!-- 模拟XML -->
+    <people>
+        <one>
+            <name unm="1001">丁铭</name>
+            <age>23</age>
+            <sex>男</sex>
+        </one>
+        <one>
+            <name>高娟</name>
+            <age>23</age>
+            <sex>女</sex>
+        </one>
+        <one>
+            <name>谁呀</name>
+            <age>999</age>
+            <sex>未知</sex>
+        </one>
+    </people>
+    <script type="text/javascript">
+    	var box = document.getElementById('box');
+    	var people = document.getElementsByTagName('people');
+    	var one=document.getElementsByTagName('one');
+
+    	// console.log(one[0].innerHTML);
+
+    	var text='';
+    	for (var i = 0; i < one.length; i++) {
+    		text+=one[i].children[0]+'|'+one[i].children[1]+'|'+one[i].children[2]+'<br>'
+    	}
+    	box.innrHTML=text;
+    </script>
+</body>
+
+</html>

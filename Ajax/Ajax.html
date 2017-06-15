@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<form action="index.html" method="get" >
+		<input type="password"  value="密码" >
+		<input type="submit" name="" value="提交">
+	</form>
+
+	<script type="text/javascript">
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET","./index.json?t="+new Date().getTime(),true);
+
+		xhr.send()
+	</script>
+</body>
+</html>

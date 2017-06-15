@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		#con{width: 300px;margin: 0 auto;}
+		#ipt{width: 298px;height: 40px;font-size: 28px;}
+		#list{list-style: none;}
+		#list li{height: 40px;border: 1px solid;background: #ccc;font-size: 28px;line-height: 40px;}
+	</style>
+</head>
+<body>
+	<div id="con">
+		<input type="text" id="ipt" name="">
+		<ul id="list">
+			
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+		function aaa(json1){
+			//console.log(json1);
+			list.innerHTML="";
+			for (var i = 0; i < json1.s.length; i++) {
+				var newLi=document.createElement('li');
+				newLi.innerHTML=json1.s[i];
+				list.appendChild(newLi)
+			}
+		}
+		var ipt=document.getElementById('ipt');
+		var list=document.getElementById('list');
+		ipt.onkeyup=function(){
+			var Url = "http://suggestion.baidu.com/su?cb=aaa&wd="+ipt.value+"&_t="+new Date().getTime();
+			var Script = document.createElement('script');
+			Script.src=Url;
+			document.body.appendChild(Script);
+		}
+	</script>
+</body>
+</html>

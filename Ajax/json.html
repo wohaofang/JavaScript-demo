@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		var json1={'name':'丁铭','sex':'男','age':24,'add':{"sheng":"beijing"}}
+		var json2="{'name':'丁铭','sex':'男','age':24}"
+
+		// alert(json1.name)
+		var json22=eval("("+json2+")");
+		//alert(json22.name);
+		for(var i in json1){
+			console.log(i+':'+json1[i])
+		}
+
+	</script>
+</body>
+</html>

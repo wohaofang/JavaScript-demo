@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<people>
+	<one>
+		<name unm="1001">丁铭</name>
+		<age>23</age>
+		<sex>男</sex>
+	</one>
+	<one>
+		<name>丁铭</name>
+		<age>23</age>
+		<sex>男</sex>
+	</one>
+	<one>
+		<name>丁铭</name>
+		<age>23</age>
+		<sex>男</sex>
+	</one>
+</people>

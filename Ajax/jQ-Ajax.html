@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<form action="###">
+		<input type="text" name="user">
+		<input type="password" name="pass">
+		<select name="add" >
+			<option value="11">11</option>
+			<option value="22">22</option>
+			<option value="33">33</option>
+
+		</select>
+		<input type="submit" value="btn">
+	</form>
+	
+
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("form").submit(function(){
+				var data=$("form").serialize();
+				console.log(data);
+				$.ajax({
+					type:"get",
+					url:"demo.json",
+					//data:"user=lily&pass123"
+					data:{},
+					cache:false,
+					dataType:"json",
+					success:function(data){
+						console.log(data);
+					}
+				})
+				return false
+			})
+		})
+	</script>
+</body>
+</html>
