@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        font: 12px 宋体, "Arial Narrow", HELVETICA;
+        background: rgb(255, 255, 255);
+    }
+    
+    ul,
+    li {
+        list-style: none;
+    }
+    
+    nav {
+        position: relative;
+        height: 32px;
+        width: 100%;
+        /*overflow: hidden;*/
+        border-bottom: 1px solid #ccc;
+    }
+    
+    ul {
+        float: right;
+        display: inline-block;
+        /*margin-right: 17px;*/
+    }
+    
+    li {
+        cursor: pointer;
+        display: inline-block;
+        height: 32px;
+        line-height: 32px;
+        padding-left: 19px;
+        color: #555;
+        padding-right: 10px
+    }
+    
+    .more {
+        padding-right: 15px;
+        background: #398bfb;
+        border-bottom: 1px solid #398bfb;
+        color: #fff;
+        width: 55px;
+    }
+    
+    .div1 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 88px;
+        min-height: 600px;
+        border-left: 1px solid #e7e7e7;
+        background: #f9f9f9;
+        display: none;
+    }
+    .div1 p{
+    	color: #000;
+    	margin: 0 auto;
+    	text-align: center;
+    	    padding: 1px 0;
+    	    width: 70px;
+    border-bottom: 1px solid #f0f0f0;
+    }
+    .music{
+    	text-align: center;
+    	margin: 6px 0;
+    }
+    .denglu{
+    	position: absolute;
+    	    top: 32px;
+    right: 154px;
+    	
+    	width: 70px;
+    	height: 127px;
+    	display: none;
+    	
+    }
+    .denglu-z{
+    	    position: relative;
+    border: 1px solid #E3E3E3;
+    box-shadow: 1px 1px 5px #d1d1d1;
+    text-align: center;
+
+    }
+    .denglu-z span{
+    	position: absolute;
+    	    top: -5px;
+    left: 29px;
+    display: block;
+    width: 7px;
+    height: 7px;
+    	/*background: #fff;*/
+    	border-top: 1px solid #E3E3E3;
+    	border-left: 1px solid #e3e3e3;
+    	transform: rotateZ(45deg);
+    }
+    .denglu-z p:hover{
+    	background: #398bfb;
+    	color: #fff;
+    }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li>糯米</li>
+            <li>新闻</li>
+            <li>hao123</li>
+            <li>地图</li>
+            <li>视频</li>
+            <li id="li1">Sky隐形人
+				<div class="denglu" id="denglu">
+				   <div class="denglu-z">
+					<p>我的VIP</p>
+					<p>个人中心</p>
+					<p>账号设置</p>
+					<p>意见反馈</p>
+					<p>退出</p>
+					<span></span>
+					</div>
+				</div>
+            </li>
+            <li>设置</li>
+            <li id="li2" class="more" >更多产品
+                <div class="div1" id="div1">
+                  <p>更多产品</p>
+                  <div class="music">
+                  	<img src="img/music.png">
+                  	<p>音乐</p>
+                  </div>
+                  <div class="music">
+                  	<img src="img/image.png">
+                  	<p>图片</p>
+                  </div>
+                  <div class="music">
+                  	<img src="img/zhidao.png">
+                  	<p>知道</p>
+                  </div>
+                  <div class="music">
+                  	<img src="img/wenku.png">
+                  	<p>文库</p>
+                  </div>
+                  <div class="music">
+                  	<img src="img/bang.png">
+                  	<p>风云榜</p>
+                  </div>
+                  <div class="music">
+                  	<img src="img/tuiguang.png">
+                  	<p>百度推广</p>
+                  </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <script type="text/javascript">
+    	var div1 = document.getElementById('div1');
+    	var denglu = document.getElementById('denglu');
+        var li1 =document.getElementById('li1');
+        var li2 =document.getElementById('li2');
+        li1.onmouseover= li2Over;
+        li1.onmouseout= li2Out;
+        li2.onmouseover= liOver;
+        li2.onmouseout= liOut;
+    	function liOver(){
+    		div1.style.display = 'block';
+    	}
+    	function liOut(){
+    		div1.style.display = 'none';
+    	}
+
+    	function li2Over(){
+    		denglu.style.display = 'block';
+    	}
+    	function li2Out(){
+    		denglu.style.display = 'none';
+    	}
+
+    </script>
+</body>
+
+</html>

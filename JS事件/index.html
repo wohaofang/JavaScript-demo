@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript作业</title>
+</head>
+<body>
+	
+
+
+
+	<!-- script -->
+	<script type="text/javascript">
+	    // 创建一个对象
+		var obj = new Object();
+		// 给这个对象赋值
+		obj.name = "丁铭";
+		obj.age = 24;
+		obj.height = parseFloat("1.78");
+		obj.logion = '"当才华还撑不起你的野心时,你应该静下心来学习!"'
+		// 获取输出对象
+ 		alert("大家好，我叫:"+obj.name+",今年"+obj.age+"岁，身高"+obj.height+"m。\n我的座右铭是："+obj.logion);
+ 		//  打印出对象
+		document.write("大家好，我叫:"+obj.name+",今年"+obj.age+"岁，身高"+obj.height+"m。<br/>我的座右铭是："+obj.logion);
+		//打印对应的数据类型
+		alert("obj.name的数据类型是:"+typeof(obj.name)+"类型");
+		alert("obj.age的数据类型是:"+typeof(obj.age)+"类型");
+		alert("obj.height的数据类型是:"+typeof(obj.height)+"类型");
+		alert("obj.logion的数据类型是:"+typeof(obj.logion)+"类型");
+		alert(("大家好，我叫:"+obj.name+",今年"+obj.age+"岁，身高"+obj.height+"m。\n我的座右铭是："+obj.logion).length);
+	</script>
+</body>
+</html>

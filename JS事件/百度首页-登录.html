@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        font: 12px 宋体, "Arial Narrow", HELVETICA;
+        background: rgb(255, 255, 255);
+    }
+    
+    ul,
+    li {
+        list-style: none;
+    }
+    
+    .div1 {
+        position: relative;
+        width: 100px;
+        height: 40px;
+        border: 1px #ccc solid;
+        margin: 100px auto;
+        overflow: hidden;
+    }
+    
+    ul {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 40px;
+    }
+    
+    li {
+        float: left;
+    }
+    
+    button {
+        display: block;
+        position: absolute;
+        top: 123px;
+        left: 55%;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+        <ul id="ul1">
+            <li><img src="img/genimage.png"></li>
+            <li><img src="img/genimage (1).png"></li>
+        </ul>
+    </div>
+    <button id="btn" >换一张</button>
+
+    <script type="text/javascript">
+        var oUl =document.getElementById('ul1');
+        var oBtn =document.getElementById('btn');
+        oBtn.onclick=butClick;
+        function butClick(){
+            oUl.style.left='-100px';
+        }
+
+    </script>
+</body>
+
+</html>

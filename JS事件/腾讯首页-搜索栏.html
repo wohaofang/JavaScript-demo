@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>搜索栏</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        font: 12px 宋体, "Arial Narrow", HELVETICA;
+        background: rgb(255, 255, 255);
+    }
+    
+    ul,
+    li {
+        list-style: none;
+    }
+    
+    form {
+        width: 381px;
+        height: 41px;
+        margin: 30px auto;
+        z-index: 1;
+        border: 1px solid #ccc;
+    }
+    
+    .form1 {
+        border: 1px solid #f00;
+    }
+    
+    .form2 {
+        border: 1px solid #ccc;
+    }
+    
+    .ipt1 {
+        margin-left: 48px;
+        width: 243px;
+        height: 37px;
+        outline: none;
+        border: none;
+    }
+    
+    .ipt2 {
+        width: 87px;
+        height: 41px;
+        margin-left: -3px;
+        outline: none;
+        border: none;
+    }
+    
+    .div1 {
+        position: absolute;
+        left: 50%;
+        top: 37px;
+        margin-left: -191px;
+        z-index: 10;
+    }
+    
+    .div1 p {
+        display: inline-block;
+        cursor: pointer;
+        font-size: 14px;
+        height: 35px;
+        line-height: 35px;
+        padding: 3px 10px;
+        width: 48px;
+        color: #a8a8a8;
+        font-weight: 700;
+        margin-top: -5px;
+    }
+    
+    .div1 ul {
+        display: none;
+        position: absolute;
+        top: 35px;
+        left: 0px;
+        width: 50px;
+    }
+    
+    .ul1 {
+        border: 1px solid #f00;
+        border-top: 1px solid #fff;
+        display: block;
+    }
+    
+    .ul2 {
+        display: none;
+        border: 1px solid #ccc;
+        border-top: 1px solid #fff;
+    }
+    
+    .div1 ul li {
+        cursor: pointer;
+        font-size: 14px;
+        height: 35px;
+        line-height: 35px;
+        color: #a8a8a8;
+        font-weight: 700;
+        text-align: center;
+    }
+    
+    .spa {
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        border-right: 2px solid #ccc;
+        border-bottom: 2px solid #ccc;
+        transform: rotateZ(45deg);
+    }
+    
+    .div1 p:hover .spa {
+        transform: rotateZ(-135deg);
+    }
+    
+    #ul1 li:hover {
+        background: #ccc;
+        color: #fff;
+    }
+    </style>
+</head>
+
+<body>
+    <form id="form1">
+        <input class="ipt1" type="text">
+        <input class="ipt2" type="button" value="搜索">
+    </form>
+    <div id="div1" class="div1">
+        <p>网页 <span class="spa"></span></p>
+        <ul id="ul1">
+            <li>网页</li>
+            <li>图片</li>
+            <li>视频</li>
+            <li>音乐</li>
+            <li>地图</li>
+            <li>问问</li>
+            <li>百科</li>
+            <li>购物</li>
+            <li>新闻</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+    var div1 = document.getElementById('div1');
+    var ul1 = document.getElementById('ul1');
+    var form1 = document.getElementById('form1');
+    div1.onmouseover = pOver;
+    div1.onmouseout = pOut;
+
+    function pOver() {
+        ul1.style.display = 'block';
+        form1.className = 'form1';
+        ul1.className = 'ul1';
+
+    }
+
+    function pOut() {
+        ul1.style.display = 'none';
+        form1.className = 'form2';
+        ul1.className = 'ul2';
+    }
+    </script>
+</body>
+
+</html>

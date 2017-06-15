@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        font: 14px 宋体, "Arial Narrow", HELVETICA;
+        background: rgb(255, 255, 255);
+        background-color: #f6f6f6;
+    }
+    
+    ul,
+    li {
+        list-style: none;
+        display: inline-block;
+    }
+    
+    nav {
+        position: relative;
+        height: 50px;
+        width: 100%;
+        text-align: center;
+        background: #c5c5c5;
+        border-bottom: 1px solid #000;
+    }
+    
+    li {
+        width: 81px;
+        height: 50px;
+        line-height: 50px;
+        /*padding-top: 17px;*/
+        /*border-right: 1px solid #999;*/
+        /*padding: 0 12px;*/
+        color: #636161;
+        cursor: pointer;
+        z-index: 20;
+        border: 1px solid transparent;
+    }
+    
+    li:hover {
+        background: #fff;
+        border: 1px solid #000;
+        border-bottom: 1px solid #fff;
+    }
+    .li1{
+        position: relative;
+        border: 1px solid transparent;
+       
+    }
+    .li1:hover{
+         background: #c5c5c5;
+        border: 1px solid transparent;
+    }
+    .li1 p{
+        position: relative;
+        z-index: 90;
+        width: 81px;
+        height: 49px;
+        border: 1px solid transparent;
+     
+
+    }
+    .li1 p:hover{
+        background: #fff;
+        border: 1px solid #000;
+        border-bottom: 1px solid #fff;
+    }
+    .div1{
+        position: absolute;
+        z-index: 2;
+        top: 49px;
+        left: 0px;
+        width: 200px;height: 200px;border: 1px solid #000;
+        background: #fff;
+        line-height: 200px;
+        display: none;
+    }
+    
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li>免费注册 </li>
+            <li id="li1" class="li1">
+                <p>我的订单</p>
+                <div class="div1" id="div1">
+                    我是丁铭，正在在好好写作业
+                </div>
+            </li>
+            <li>我的京东 </li>
+            <li>京东会员 </li>
+            <li>企业采购 </li>
+            <li>客户服务 </li>
+            <li>网站导航 </li>
+            <li>手机京东 </li>
+        </ul>
+    </nav>
+    <script type="text/javascript">
+    var div1 = document.getElementById('div1');
+    var li1 = document.getElementById('li1');
+    li1.onmouseover = liOver;
+    li1.onmouseout = liOut;
+
+    function liOver() {
+        div1.style.display = 'block';
+    }
+
+    function liOut() {
+        div1.style.display = 'none';
+    }
+    </script>
+</body>
+
+</html>

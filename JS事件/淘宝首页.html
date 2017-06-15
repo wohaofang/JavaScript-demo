@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    .container {
+        color: #6c6c6c;
+        width: 233px;
+        height: 324px;
+        margin: 30px auto;
+        border: 2px solid transparent;
+        cursor: pointer;
+        
+    }
+    .container1{
+        color: #6c6c6c;
+        width: 233px;
+        height: 324px;
+        margin: 30px auto;
+        border: 2px solid #ff630c;
+        cursor: pointer;
+    }
+    .container2{ color: #6c6c6c;
+        width: 233px;
+        height: 324px;
+        margin: 30px auto;
+        border: 2px solid transparent;
+        cursor: pointer;;}
+    
+    .div-img {
+        width: 233px;
+        height: 233px;
+        opacity: 1;
+    }
+    .div-img1 {
+        width: 233px;
+        height: 233px;
+        opacity: 0.5;
+    }
+    .div-img2 {
+        width: 233px;
+        height: 233px;
+        opacity: 1;
+    }
+    
+    .text1 {
+        background: #ccc;
+        padding: 1px 3px 3px 4px;
+        transition: 1s;
+    }
+    
+    .div-img img,.div-img1 img ,.div-img2 img{
+        width: 100%;
+        height: 100%;
+    }
+    
+    .text-1 {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .text2 {
+        background: #ff630c;
+        width: 233px;
+        height: 90px;
+        text-align: center;
+        padding-top: 1px;
+        display: none;
+        transition: 1s;
+    }
+    
+    .text2 h3 {
+        width: 100px;
+        height: 22px;
+        /* text-align: center; */
+        margin: 18px auto 0;
+        color: #fff;
+        padding: 0px 0 7px 0;
+        border-bottom: 1px solid #ccc;
+    }
+    
+    .text2 p {
+        width: 200px;
+        margin: 5px auto 0;
+        color: #fff;
+        font-size: 14px;
+
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="container" >
+        <div class="div-img" id="div-img">
+            <img src="img/1.jpg">
+        </div>
+        <div class="text1" id="text1">
+            <p>充电器头手机快速安卓苹果6华为小米三星</p>
+            <div class="text-1">
+                <span>￥29.9</span>
+                <span>销量1628</span>
+            </div>
+        </div>
+        <div class="text2" id="text2">
+            <h3>找相似</h3>
+            <p>发现更多相似的宝贝</p>
+        </div>
+    </div>
+    <script type="text/javascript">
+    var cont = document.getElementById('container');
+    var text1 = document.getElementById('text1');
+    var text2 = document.getElementById('text2');
+    var divImg = document.getElementById('div-img');
+    cont.onmouseover=contOver;
+    cont.onmouseout=contOut;
+    divImg.onmouseover=imgOver;
+    divImg.onmouseout=imgOut;
+    function contOver() {
+        cont.className='container1';
+        text1.style.display = 'none';
+        text2.style.display = 'block';
+    }
+
+    function contOut() {
+        cont.className='container2';   
+        text1.style.display = 'block';
+        text2.style.display = 'none';
+    }
+
+    function imgOver(){
+    	divImg.className='div-img1';
+    }
+
+    function imgOut(){
+    	divImg.className='div-img2';
+
+    }
+
+
+    </script>
+</body>
+
+</html>
