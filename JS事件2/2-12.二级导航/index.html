@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>二级</title>
+<style>
+/*----重置----*/
+blockquote,
+body,
+button,
+dd,
+dl,
+dt,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+input,
+legend,
+li,
+ol,
+p,
+pre,
+td,
+textarea,
+th,
+ul { margin: 0; padding: 0 }
+body { overflow-x: hidden; background:#fff; }
+li { list-style: none; }
+a { text-decoration: none; }
+a:active { background:none; }
+/*----公共样式----*/
+.clearfix:after { display: block; height: 0; content: "."; clear: both; visibility: hidden; }
+.left { float: left; }
+.right { float: right; }
+/*导航*/
+.g-box { width: 1100px; margin: 0 auto; }
+.m-nav { border-bottom:4px solid #bfbfbf; }
+.nav-list { margin-left:13px; }
+.nav-item { position:relative; z-index:99; float:left; width:178px; height:44px; line-height:44px; margin-right:1px; background-color:#3a3a3a; text-align:center; font-size:16px; }
+.nav-list .cur,
+.nav-list .active { height:48px; line-height:48px; margin-top:-4px; background-color:#386fad; }
+.active .sub-nav { display:block; }
+.nav-item>a { display:block; width:100%; height:100%; color:#fff; }
+.sub-nav { display:none; position:absolute; top:52px; top:48px; left:0; width:100%; background-color:#ececec; border-top:4px solid #bfbfbf;  }
+.sub-nav li { border:1px solid #c2c2c2; border-top:none; }
+.sub-nav a { display:block; height:100%; color:#404040; }
+.sub-nav a:hover { color:#386fad; background-color:#f9f9f9; }
+</style>
+</head>
+<body>
+	<div class="g-box">
+		<!--导航 begin-->
+		<div class="m-nav">
+			<ul class="nav-list clearfix" id="nav">
+				<!--
+					class 中的 cur 代表当前项目
+					class 中的 active 供移入移出用
+				-->
+				<li class="nav-item cur">
+					<a href="#">首页</a>
+				</li>
+				<li class="nav-item ">
+					<a href="#">平台</a>
+				</li>
+				<li class="nav-item">
+					<a href="#">大数据</a>
+				</li>
+				<li class="nav-item">
+					<a href="#">舆情检测</a>
+					<ul class="sub-nav">
+						<li>
+							<a href="#">风险警示</a>
+						</li>
+						<li>
+							<a href="#">维度分析</a>
+						</li>
+						<li>
+							<a href="#">新手课堂</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<a href="#">权威发布</a>
+					<ul class="sub-nav">
+						<li>
+							<a href="#">测试导航</a>
+						</li>
+						<li>
+							<a href="#">测试导航</a>
+						</li>
+						<li>
+							<a href="#">测试导航</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<a href="#">中心动态</a>
+				</li>
+			</ul>
+		</div>
+		<!--导航 end-->
+	</div>
+
+
+	<script>
+		window.onload=function(){
+			oNav = document.getElementById('nav');
+			oLi1= document.getElementsByClassName('nav-item');
+			for (var i = 0; i < oLi1.length; i++) {
+				oLi1[i].onmouseover=function(){
+					for (var i = 0; i < oLi1.length; i++) {
+						oLi1[i].classList.remove('active');//移除class
+					}
+
+                       this.classList.add('active');//添加class
+				};
+				oLi1[i].onmouseout=function(){
+					for (var i = 0; i < oLi1.length; i++) {
+						oLi1[i].classList.remove('active');//移除class
+					}
+				};
+			}
+			
+
+		};
+	</script>
+</body>
+</html>

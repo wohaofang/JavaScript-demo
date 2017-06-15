@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JavaScript简易日历</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<div id="tab" class="calendar">
+
+    <ul>
+        <li class="active"><h2>1</h2><p>JAN</p></li>
+        <li><h2>2</h2><p>FER</p></li>
+        <li><h2>3</h2><p>MAR</p></li>
+        <li><h2>4</h2><p>APR</p></li>
+        <li><h2>5</h2><p>MAY</p></li>
+        <li><h2>6</h2><p>JUN</p></li>
+        <li><h2>7</h2><p>JUL</p></li>
+        <li><h2>8</h2><p>AUG</p></li>
+        <li><h2>9</h2><p>SEP</p></li>
+        <li><h2>10</h2><p>OCT</p></li>
+        <li><h2>11</h2><p>NOV</p></li>
+        <li><h2>12</h2><p>DEC</p></li>
+    </ul>
+    
+    <div class="text">
+        <h2 id="tit">1月活动</h2>
+        <p id="p1">快过年了，大家可以商量着去哪玩吧～</p>
+    </div>
+    <div>
+        <h2 id="tit">2月活动</h2>
+        <p id="p1">2月活动2月活动</p>
+    </div>
+    <div>
+        <h2 id="tit">3月活动</h2>
+        <p id="p1">3月活动3月活动3月活动</p>
+    </div>
+    <div>
+        <h2 id="tit">4月活动</h2>
+        <p id="p1">4月活动4月活动</p>
+    </div>
+    <div>
+        <h2 id="tit">5月活动</h2>
+        <p id="p1">5月活动5月活动5月活动</p>
+    </div>
+    <div>
+        <h2 id="tit">6月活动</h2>
+        <p id="p1">6月活动6月活动6月活动</p>
+    </div>
+    <div>
+        <h2 id="tit">7月活动</h2>
+        <p id="p1">7月活动7月活动7月活动</p>
+    </div>
+    <div>
+        <h2 id="tit">8月活动</h2>
+        <p id="p1">8月活动8月活动8月活动</p>
+    </div>
+    <div>
+        <h2 id="tit">9月活动</h2>
+        <p id="p1">9月活动9月活动9月活动9月活动</p>
+    </div>
+    <div>
+        <h2 id="tit">10月活动</h2>
+        <p id="p1">10月活动10月活动10月活动</p>
+    </div>
+    <div>
+        <h2 id="tit">11月活动</h2>
+        <p id="p1">11月活动11月活动11月活动</p>
+    </div>
+    <div>
+        <h2 id="tit">12月活动</h2>
+        <p id="p1">12月活动12月活动12月活动12月活动</p>
+    </div>
+
+
+</div>
+
+<script type="text/javascript">
+    window.onload=function(){
+        tab = document.getElementById('tab');
+        oLi=document.getElementsByTagName('li');
+        oDiv=tab.getElementsByTagName('div');
+
+        // alert(oDiv);
+        for(var i=0;i<oLi.length;i++){
+            oLi[i].index=i;
+
+            oLi[i].onmouseover=function(){
+                //清除class
+                for(var i=0;i<oLi.length;i++){
+                    oLi[i].className='';
+                    oDiv[i].className='';
+                }
+                //添加class
+                this.className='active';
+
+                var index = this.index;
+                oDiv[index].className='text';
+            };
+        }
+    };
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
