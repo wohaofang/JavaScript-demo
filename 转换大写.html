@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<input type="number" id="ipt" placeholder="请输入四位数">
+		<button onclick="oBtn()">转换</button>
+		<span id="span"></span>
+	</div>
+
+	<script type="text/javascript">
+		function oBtn(){
+			var ipt = parseInt(document.getElementById('ipt').value);
+			var sSpan = document.getElementById('span');
+			
+			if (!ipt) {
+				alert('请输入数字');
+				return;
+			}
+			if (ipt>10000 || ipt<999) {
+				alert('请输入四位数');
+				return;
+			}
+
+			var nGe = parseInt(ipt%10);
+			var nShi = parseInt(ipt/10%10);
+			var nBai = parseInt(ipt/100%10);
+			var nQian = parseInt(ipt/1000%10);
+
+			sSpan.innerText ='人民币:'+ capital(nQian)+'仟'+capital(nBai)+'佰'+capital(nShi)+'拾'+capital(nGe)+'元';
+		}
+		function capital(n){
+			var number = '';
+			switch(n){
+				case 0: number='零';break;
+				case 1: number='壹';break;
+				case 2: number='贰';break;
+				case 3: number='叁';break;
+				case 4: number='肆';break;
+				case 5: number='伍';break;
+				case 6: number='陆';break;
+				case 7: number='柒';break;
+				case 8: number='捌';break;
+				case 9: number='玖';break;
+
+			}
+			return number;
+		}
+	</script>
+</body>
+</html>
