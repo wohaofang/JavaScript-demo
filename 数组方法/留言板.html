@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<input type="text" id="t1">
+	<input type="button" id="btn">
+	<ul id="ul">
+		<li>111</li>
+	</ul>
+
+	<script type="text/javascript">
+		var t1=document.getElementById('t1');
+		var btn=document.getElementById('btn');
+		var ul=document.getElementById('ul');
+
+		btn.onclick=function(){
+			var str = t1.value;
+			var oLi = document.createElement('li');
+			oLi.innerHTML= str+'<a href="javascript:;">删除</a>';
+			//ul.appendChild(oLi);// 添加在下面，顺序执行
+			//ul.insertBefore(oLi,ul.children[0]);
+			if (ul.children[0]) {
+				ul.insertBefore(oLi,ul.children[0])
+			}else{
+				ul.appendChild(oLi);
+			}
+
+			var ab = document.getElementsByTagName('a');
+			for (var i = 0; i < ab.length; i++) {
+				ab[i].onclick=function(){
+					var li = this.parentNode;
+					ul.removeChild(li);
+				};
+			}
+		};
+	</script>
+</body>
+</html>
