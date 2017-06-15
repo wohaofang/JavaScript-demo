@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{width: 700px;height: 400px;position: relative;border: 5px solid red;margin: 50px auto;}
+		span{opacity: 0; display: block;position: absolute;width: 100px;height: 100px;top: 0;left: 0; background-repeat: no-repeat;background-image: url(images/1.jpg);background-position: 0 0;}
+	</style>
+</head>
+<body>
+	<div><img src="images/0.jpg"><span></span></div>
+
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		var W=700;
+		var H=400;
+		var cols = 7;
+		var rows = 4;
+		var nW = W/cols;
+		var nH = H/rows;
+		var oImg=$('img');
+		var aImg=['images/0.jpg','images/1.jpg','images/2.jpg'];
+		var num=0;
+		var aImgPath=[
+			'images/0.jpg',
+			'images/1.jpg',
+			'images/2.jpg'
+		];
+
+		for(var c=0;c<cols;c++){
+			for(var r=0;r<rows;r++){
+				var nLeft = c*nW;
+				var nTop = r*nH;
+				var aSpan = $('<span></span>');
+
+				aSpan.css({
+					width:nW+'px',
+					height:nH+'px',
+					left:nLeft+'px',
+					top:nTop+'px',
+					'background-position':-nLeft+'px -'+nTop+'px'
+				});
+
+				aSpan.appendTo('div');
+
+			}
+		}
+
+		$(document).click(function(){
+			var aSpan = $('span');
+			var now = 0;
+			num++;
+			// var timer = setInterval(function(){
+			// 	(function(index){
+			// 		aSpan.eq(index).animate({
+			// 			opacity:1
+			// 		},{	
+			// 			complete:function(){
+			// 				if (index==aSpan.length-1) {
+			// 					oImg.attr('src',aImg[num%aImg.length]);
+			// 					aSpan.css({
+			// 						opacity:0,
+			// 						'background-image':'url('+aImg[(num+1)%aImg.length]+')'
+
+			// 					})
+			// 				}
+			// 			}
+			// 		})
+			// 	})(now)
+			// 	now++;
+			// 	if (now==aSpan.length) {
+			// 		clearInterval(timer);
+			// 	}
+			// },100)
+
+
+
+			
+
+
+		})
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

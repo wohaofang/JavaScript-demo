@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+* { margin:0; padding:0; }
+ul { width:510px; height:510px; margin:50px auto; border:1px solid red; }
+li { width:150px; height:150px; margin:10px; float:left; list-style:none; }
+img { display:block; width:100%; }
+/*仅仅是测试*/
+span { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(255, 255, 255, 0.5); color:red; font-size:50px; text-align:center; line-height:150px; font-weight:bold; }
+</style>
+</head>
+
+<body>
+	<ul>
+		<li><img src="cat/1.jpg" /></li>
+		<li><img src="cat/2.jpg" /></li>
+		<li><img src="cat/3.jpg" /></li>
+		
+		<li><img src="cat/4.jpg" /></li>
+		<li><img src="cat/5.jpg" /></li>
+		<li><img src="cat/6.jpg" /></li>
+		
+		<li><img src="cat/7.jpg" /></li>
+		<li><img src="cat/8.jpg" /></li>
+		<li><img src="cat/9.jpg" /></li>
+	</ul>
+
+	<script type="text/javascript" src="jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		// var aLi=$('li');
+		// var arr=[]; 
+		// aLi.each(function(){
+		// 	arr.push({
+		// 		left:$(this).offset().left,
+		// 		top:$(this).offset().top
+		// 	});
+		// })
+		// aLi.each(function(index){
+		// 	$(this).css({
+		// 		left:arr[index].left+'px',
+		// 		top:arr[index].top+'px',
+		// 		position:'absolute',
+		// 		margin:0
+		// 	});
+		// })
+
+		// $(document).click(function(){
+		// 	arr.sort(function(){
+		// 		return Math.random()-0.5;
+		// 	});
+
+
+		// 	// document.write(arr);
+		// 	//console.log(arr)
+		// 	aLi.each(function(index){
+		// 		$(this).animate(arr[index])
+		// 	})
+			
+		// })
+
+		var li = $('li');
+		var arr=[];
+
+		li.each(function(){
+			arr.push({
+				left:$(this).offset().left,
+				top:$(this).offset().top
+			});
+		});
+
+		//console.log(arr)
+		li.each(function(index){
+			$(this).css({
+				left:arr[index].left,
+				top:arr[index].top,
+				margin:0,
+				position:'absolute'
+			})
+		});
+
+		$(document).click(function(){
+			arr.sort(function(){
+				return Math.random()-0.5;
+			});
+
+console.log(arr)
+			li.each(function(index){
+				$(this).animate(arr[index]);
+			})
+		});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

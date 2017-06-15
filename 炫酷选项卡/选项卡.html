@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    *{
+    	margin: 0;padding: 0;
+    }
+    div{
+    	overflow: hidden;
+    	position: absolute;
+    	top: 50%;left:50%;
+    	margin: -125px 0 0 -250px;
+    	width: 500px;height: 250px;border: 5px solid red;
+    	font-size: 50px;text-align: center;
+
+    }
+    li{list-style: none;}
+    ul{
+    	position: absolute; top: 0;left: 0;
+    }
+    ul li{
+    	width: 500px;height: 250px;
+    }
+    ol{
+    	position: absolute;bottom: 30px;left: 90px;
+    }
+    ol li{display: inline-block; width: 60px;height: 30px;background: yellow;}
+    ol span{
+    	display: block;height: 100%; width: 0%;background: #fff; 
+    }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li style="background: #ccc">1</li>
+            <li style="background:blue">2</li>
+            <li style="background: #999">3</li>
+            <li style="background: #630ffc">4</li>
+        </ul>
+        <ol>
+        	<li><span></span></li>
+        	<li><span></span></li>
+        	<li><span></span></li>
+        	<li><span></span></li>
+        </ol>
+    </div>
+
+    <script type="text/javascript" src='jquery-1.12.4.js'></script>
+    <script type="text/javascript">
+    	var aSpan = $('span');
+    	var oLi = $('ul li');
+    	var n=0;
+
+    	//alert(oLi.length);
+    	next();
+    	// nextt();
+    	// function nextt(){
+    	// 	$('ul').animate({
+    	// 		top:-250*(n%aSpan.length)+'px'
+    	// 	},1200)
+    	// }
+    	function next(){
+    		aSpan.css('width','0');
+    		aSpan.eq(n%aSpan.length).animate({
+    			width:'100%'
+    		},{
+    			duration:1200,
+    			complete:function(){
+    				n++;
+    				$('ul').animate({
+    					top:-250*(n%aSpan.length)+'px'
+    				},1200)
+
+    				next();
+    			}
+    		});
+    	}
+
+    	
+    </script>
+</body>
+
+</html>
