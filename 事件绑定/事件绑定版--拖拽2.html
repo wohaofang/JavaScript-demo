@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#div{
+			width: 100px;height: 100px;background: #ccc;
+			position: fixed;
+			top: 100px;left: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="div"></div>
+
+	<script type="text/javascript">
+		var div =document.getElementById('div');
+
+		addEvent(div,'mousedown',function(ev){
+			var oEvent = ev || event;
+
+			var disX=oEvent.clientX-div.offsetLeft;
+			var disY=oEvent.clientY-div.offsetTop;
+			
+			addEvent(document,'mousemove',show);
+			addEvent(document,'mouse-up',hide);
+
+
+			function show(ev){
+				var oEvent = ev || event;
+				var left = oEvent.clientX - disX;
+				var top = oEvent.clientY - disY;
+
+				div.style.left = left+'px';
+				div.style.top = top+'px';
+			}
+
+			function hide(){
+				removeEvent(document,'mousemove',show);
+				removeEvent(document,'mousemup',hide);
+			}
+		});
+
+
+
+
+
+
+
+
+
+
+
+		function  addEvent(obj,sEv,fn){
+			if(obj.attachEvent){
+				obj.attachEvent('on'+sEv,fn)
+			}else{
+				obj.addEventListener(sEv,fn,false);
+			}
+		};
+
+		function  removeEvent(obj,sEv,fn){
+			if(obj.detachEvent){
+				obj.detachEvent('on'+sEv,fn)
+			}else{
+				obj.removeEventListener(sEv,fn,false);
+			}
+		};
+	</script>
+</body>
+</html>

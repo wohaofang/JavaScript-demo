@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="aaa" id="btn">
+	<script type="text/javascript">
+		var btn = document.getElementById('btn');
+
+	addEvent(btn,'click',function(){
+			alert(111)
+		})
+
+		addEvent(btn,'click',function(){
+			alert(222)
+		})
+
+		function addEvent(obj,sEv,fn){
+			if (obj.attachEvent) {
+				obj.attachEvent('on'+sEv,fn);
+			}else{
+				obj.addEventListener(sEv,fn,false)
+			}
+		}
+
+
+
+	</script>
+</body>
+</html>

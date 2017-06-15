@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<button id="btn">1111</button>
+
+	<script type="text/javascript">
+		var btn = document.getElementById('btn');
+
+		btn.addEventListener('click',show,false)
+
+		btn.removeEventListener('click',show,false)
+
+		btn.addEventListener('click',function(){alert(123)},false)
+
+		btn.attachEvent('onclick',show);
+
+		function show(){
+			alert('11111')
+		}
+	</script>
+</body>
+</html>

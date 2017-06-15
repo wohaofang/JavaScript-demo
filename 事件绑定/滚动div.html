@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    div {
+        width: 100px;
+        height: 100px;
+        background: #ccc;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="div"></div>
+    <script type="text/javascript">
+    var div = document.getElementById('div');
+
+    addW(div, function(aa) {
+        var heightA = div.offsetHeight;
+
+        if (aa) {
+            heightA += 5;
+        } else {
+            heightA -= 5;
+        }
+
+        div.style.height = heightA + 'px';
+
+        //div.innerHTML = heightA;
+    });
+
+    function addW(obj,fn){
+    	obj.onmousewheel=function(ev){
+    		var oEvent = ev || event;
+    		if (oEvent.wheelDelta>0) {
+    			var down = false;
+    		}else{
+    			var down = true;
+    		}
+
+    		fn(down);
+    	}
+    };
+   
+    </script>
+</body>
+
+</html>

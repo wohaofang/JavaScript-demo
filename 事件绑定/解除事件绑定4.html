@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>张海瑞 - zhanghairui.com</title>
+<style></style>
+<script>
+window.onload=function (){
+	var oBtn=document.getElementById('btn');
+
+	addEvent(oBtn, 'click', show);
+	removeEvent(oBtn, 'click', show);
+
+	function show()
+	{
+		alert('a');
+	}
+
+	function removeEvent(obj, sEv, sFnName)
+	{
+		if (obj.detachEvent)
+		{
+			obj.detachEvent('on'+sEv, sFnName);
+		}
+		else
+		{
+			obj.removeEventListener(sEv, sFnName, false);
+		}
+	}
+
+	function addEvent(obj, sEv, fn)
+	{
+		if (obj.attachEvent)
+		{
+			obj.attachEvent('on'+sEv, fn);
+		}
+		else
+		{
+			obj.addEventListener(sEv, fn, false);
+		}
+	}
+};
+</script>
+</head>
+<body>
+	<input type="button" value="a" id="btn">
+</body>
+</html>
