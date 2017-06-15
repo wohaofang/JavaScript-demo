@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="ipt">
+
+	<script type="text/javascript">
+		var ipt = document.getElementById('ipt');
+
+		ipt.onkeydown=function(ev){
+			oEvent = ev || event;
+			if (oEvent.keyCode>=48&&oEvent.keyCode<=57||oEvent.keyCode==8||oEvent.keyCode==37||oEvent.keyCode==39) {
+				//return true
+			}else{
+				return false
+			}
+		};
+
+		document.onkeydown=function(ev){
+			var oEvent = ev||event;
+			console.log(oEvent.keyCode);
+		};
+	</script>
+</body>
+</html>

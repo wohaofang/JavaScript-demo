@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#div1{position: absolute;top: 100px;left: 100px; width: 100px;height: 100px;background: #0ff;}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+
+	<script type="text/javascript">
+		var div = document.getElementById('div1');
+
+		var maxLeft = document.documentElement.clientWidth-div.offsetWidth;
+		var maxTop = document.documentElement.clientHeight-div.offsetHeight;
+		 // div.onclick=function(){
+		 // 	var cln=div.cloneNode(true);
+			// div.parentNode.appendChild(cln);
+		 // }
+
+		div.onmousedown=function(ev){
+			var oEvent = ev ||event;
+			var disX = oEvent.clientX-div.offsetLeft;
+			var disY = oEvent.clientY-div.offsetTop;
+
+
+
+			div.onmousemove=function(ev){
+				var oEvent = ev||event;
+				var left = oEvent.clientX-disX;
+				var top = oEvent.clientY-disY;
+
+				if (top<0) {
+					top=0;
+				}else if(top>maxTop){
+					top=maxTop;
+				}
+
+				if (left<0) {
+					left=0;
+				}else if(left>maxLeft){
+					left=maxLeft;
+				}
+
+				div.style.left = left+'px';
+				div.style.top = top+'px';
+			};
+			div.onmouseup=function(){
+				div.onmousemove=null;
+			};
+		};
+	</script>
+</body>
+</html>

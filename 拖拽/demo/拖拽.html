@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#div1{position: absolute;top: 100px;left: 100px; width: 100px;height: 100px;background: #0ff;}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+
+	<script type="text/javascript">
+		window.onload=function(){
+			var div1 = document.getElementById('div1');
+			var maxLeft=document.documentElement.clientWidth - div1.offsetWidth;
+			var maxTop=document.documentElement.clientHeight - div1.offsetHeight;
+
+			div1.onmousedown=function(ev){
+				var oEvent = ev || event;
+				var disX = oEvent.clientX - div1.offsetLeft;
+				var disY = oEvent.clientY - div1.offsetTop;
+
+				div1.onmousemove=function(ev){
+					var oEvent = ev || event;
+					var left = oEvent.clientX - disX;
+					var top = oEvent.clientY - disY;
+
+					if (left <50) {
+						left=0;
+					}else if(left>maxLeft-50){
+						left=maxLeft;
+					}
+					if (top <50) {
+						top=0;
+					}else if(top>maxTop-50){
+						top=maxTop;
+					}
+
+					div1.style.left = left+'px';
+					div1.style.top = top+'px';
+				};
+				div1.onmouseup=function(){
+					div1.onmousemove=null;
+				}
+			};
+		};
+	</script>
+</body>
+</html>

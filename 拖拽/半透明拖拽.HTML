@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* { margin: 0; padding: 0; }
+		.div1{position: fixed;top: 100px;left: 100px;width: 100px;height: 100px;font-size: 40px;font-weight: 900; color: #fff; background: #f00;}
+		.div2{position: fixed;z-index: 1; width: 100px;height: 100px;font-size: 40px;font-weight: 900; color: #fff; background: #f00;opacity: 0.7;}
+		/*.div2>span{
+			color: transparent;
+		}*/
+	</style>
+</head>
+<body>
+	<div id="div1" class="div1">
+		我是div
+	</div>
+
+
+
+	<script type="text/javascript">
+		window.onload=function(){
+			var div1=document.getElementById('div1');
+
+			div1.onmousedown=function(ev){
+			
+				var div2 = document.createElement('div');
+				div2.className = 'div2';
+				div2.innerHTML='我是div'
+				div2.style.top = div1.offsetTop+'px';
+				div2.style.left= div1.offsetLeft +'px';
+				// div1.parentNode.appendChild(div2);
+				div1.parentNode.insertBefore(div2,div1);
+
+				var oEvent = ev || event;
+				var disX = oEvent.clientX-div1.offsetLeft;
+				var disY = oEvent.clientY-div1.offsetTop;
+
+				document.onmousemove=function(ev){
+					var oEvent = ev || event;
+					var left = oEvent.clientX - disX;
+					var top = oEvent.clientY - disY;
+
+					div2.style.left=left+'px';
+					div2.style.top=top+'px';
+				};
+				document.onmouseup=function(){
+		  			document.onmousemove=null;
+		  			document.onmouseup=null;
+		  			
+		  			div1.style.left=div2.offsetLeft+'px';
+		  			div1.style.top=div2.offsetTop+'px';
+		  			div2.parentNode.removeChild(div2);
+	  			};
+			};
+			
+
+			
+		};
+	</script>
+</body>
+</html>

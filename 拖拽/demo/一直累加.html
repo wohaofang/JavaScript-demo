@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+
+	<input type="text" value="0">
+
+	<script type="text/javascript">
+		window.onload=function(){
+			var ipt = document.getElementsByTagName('input')[0];
+			var n = 0;
+			var timer=null;
+			document.onkeydown=function(ev){
+				var oEvent = ev || event;
+				clearTimeout(timer)
+				timer=setInterval(function(){
+				if (oEvent.keyCode==66) {
+					n++;
+					ipt.value=n;
+				}
+				},100)
+			};
+			document.onkeyup=function(){
+				clearTimeout(timer)
+			}
+
+		};
+	</script>
+</body>
+</html>
