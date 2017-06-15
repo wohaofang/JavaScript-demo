@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{padding:0; margin:0;}
+li{list-style:none;}
+img{border:none;}
+
+.box{width:670px; height:240px; margin:50px auto; position:relative;}
+.imgBox img{width:670px; height:240px; display:block;}
+.num{position:absolute; bottom:5px; right:5px;}
+.num li{float:left; margin-right:5px; width:22px; height:22px; background:#999; color:#FFF; line-height:22px; text-align:center; border-radius:50% 50%; font-family:"微软雅黑"; font-size:12px;}
+.num .active{background:#E4393C;}
+
+</style>
+</head>
+<script type="text/javascript">
+    window.onload=function(){
+        aImg=['img/pic1.jpg','img/pic2.jpg','img/pic3.jpg','img/pic4.jpg','img/pic5.jpg','img/pic6.jpg'];
+        oImg= document.getElementById('imgs');
+        oLi = document.getElementsByTagName('li');
+
+        for (var i = 0; i < oLi.length; i++) {
+            oLi[i].onmouseover=function(){
+                for (var i = 0; i < oLi.length; i++) {
+                    if (this===oLi[i]) {
+                        oLi[i].classList.add('active');
+                        oImg.src = aImg[i];
+                    }else{
+                        oLi[i].classList.remove('active');
+                    }
+                }
+            }
+        }
+    };
+</script>
+
+
+
+<body>
+<div class="box">
+	<div class="imgBox" >
+    	<a href="javascript:;"><img id="imgs" src="img/pic1.jpg" alt=""></a>
+    </div>
+    <ul class="num" id="num">
+    	<li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</div>
+</body>
+</html>

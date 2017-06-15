@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    ul,
+    li {
+        list-style: none;
+    }
+    
+    nav {
+        width: 978px;
+        height: 58px;
+        position: relative;
+        z-index: 10;
+        line-height: 58px;
+        font-size: 16px;
+        color: #000;
+        overflow: hidden;
+        border: 1px solid #dadada;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px #eeeeee;
+        font-family: "微软雅黑";
+        background: #fff;
+        margin: 0 auto;
+    }
+    
+    li {
+        display: inline-block;
+        cursor: pointer;
+        padding: 0 15px;
+        /*display: inline;*/
+        width: 100px;
+        text-align: center;
+        position: relative;
+        height: 60px;
+    }
+    
+    div {
+        display: none;
+        width: 985px;
+        height: 300px;
+        border: 1px solid #fff;
+        background: #ccc;
+        margin: 0 auto;
+        font-size: 50px;
+        text-align: center;
+        line-height: 300px;
+        position: relative;
+    }
+    div.bl{
+        display: block;
+    }
+    
+    div span{
+        position: absolute;z-index: 99;
+       
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-left:  1px solid #b19898;
+        border-top:  1px solid #b19898;
+        background: #ccc;
+        transform: rotateZ(45deg);
+
+    }
+    .span1{
+            top: -9px;
+    left: 192px;
+    }
+    .span2{
+            top: -9px;
+        left: 326px;
+    }
+    .span3{
+            top: -9px;
+    left: 460px;
+    }
+    .span4{
+            top: -9px;
+    left: 595px;
+    }
+    .span5{
+            top: -9px;
+    left:732px;
+    }
+    .span6{
+            top: -9px;
+    left: 863px;
+    }
+    
+
+    
+    .col {
+        color: #a71e32;
+    }
+    .bg{background-color: #0ff}
+    
+    div.block {
+        display: block;
+    }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li class="col">首页</li>
+            <li class="lii "> 公司金融</li>
+            <li class="lii "> 个人金融</li>
+            <li class="lii"> 银行卡</li>
+            <li class="lii"> 金融市场</li>
+            <li class="lii">电子银行</li>
+            <li class="lii"> 投资者关系</li>
+          
+        </ul>
+    </nav>
+    <div><span class="span1"></span>公司金融</div>
+    <div><span class="span2"></span>个人金融</div>
+    <div><span class="span3"></span>银行卡</div>
+    <div><span class="span4"></span>金融市场</div>
+    <div><span class="span5"></span>电子银行</div>
+    <div><span class="span6"></span>投资者关系</div>
+    <div><span class="span7"></span>关于中行</div>
+</body>
+<script type="text/javascript">
+ var oLii = document.getElementsByClassName('lii');
+ var oDiv = document.getElementsByTagName('div');
+
+for (var i = 0; i < oLii.length; i++) {
+    oLii[i].onmouseover=function(){
+        for (var i = 0; i < oLii.length; i++) {
+           if (this===oLii[i]) {
+             oLii[i].classList.add('bg');
+             oDiv[i].classList.add('block');
+           }else{
+            oLii[i].classList.remove('bg');
+            oDiv[i].classList.remove('block');
+           }
+        }
+    }
+     oLii[i].onmouseout=function(){
+        for (var i = 0; i < oLii.length; i++) {
+            oLii[i].classList.remove('bg');
+            oDiv[i].classList.remove('block');
+        }
+    }
+}
+
+</script>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	  div{
+	  	position: relative;
+	  	width: 167px;height: 30px;
+	  	margin: 50px auto;
+	  }
+		select{
+			
+			width: 167px;
+			height: 30px;
+		}
+		p{
+			position: absolute;
+			    right: 19px;
+    top: -9px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+	<p>万元</p>
+	<select id="pid" onchange="aa()" >  
+		<option value="1">5万</option>
+		<option value="2">10万</option>
+		<option value="3">15万</option>
+		<option value="4">20万</option>
+		<option value="5">25万</option>
+		<option value="6">30万</option>
+	</select>
+	</div>
+
+	<script type="text/javascript">
+        var oOption = document.getElementsByTagName('option');
+
+         function aa(){ 
+        var objS = document.getElementById("pid"); 
+        var grade = objS.options[objS.selectedIndex].grade; 
+           alert(grade); 
+       } 
+
+
+
+		// var oOption = document.getElementsByTagName('option');
+		// aText = ['5','10','15','20','25','30'];
+
+		// for(var i =0;i<oOption.length;i++){
+		// 	oOption[i].onClick = function(){
+		// 		for (var i = 0; i < oOption.length; i++) {
+		// 			alert(this.innerHTML);
+		// 		}
+		// 	};
+		// }
+
+	</script>
+</body>
+</html>

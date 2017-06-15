@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 315px;
+        height: 418px;
+        background: #ccc;
+        overflow: hidden;
+    }
+    
+    .gril {
+        position: relative;
+        cursor: pointer;
+        border: 2px solid transparent;
+        width: 100px;
+        height: 100px;
+        float: left;
+        opacity: 0.5;
+        z-index: 2;
+        /*border-collapse: collapse;*/
+    }
+    
+    .gril img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .gril:hover {
+        border: 2px solid #E72163;
+        opacity: 1;
+    }
+    
+    
+    
+    .be::before {
+        content: '1号';
+        display: block;
+        width: 104px;
+        height: 104px;
+        position: absolute;
+        background: #e72163;
+        left: 102px;
+        top: -2px;
+        opacity: 1;
+        z-index: 99;
+        text-align: center;
+        line-height: 104px;
+        color: #fff;
+    }
+    .be2::before{
+    	content: '3号';
+        display: block;
+        width: 104px;
+        height: 104px;
+        position: absolute;
+        background: #e72163;
+        left: -105px;
+        top: -2px;
+        opacity: 1;
+        z-index: 99;
+        text-align: center;
+        line-height: 104px;
+        color: #fff;
+    }
+
+    </style>
+</head>
+
+<body>
+    <div class="content"> 
+        <div class="gril div1 be">
+            <img src="img/img1.jpg">
+        </div>
+        <div class="gril div1">
+            <img src="img/img2.jpg">
+        </div>
+        <div class="gril div2">
+            <img src="img/img3.jpg">
+        </div>
+        <div class="gril div1">
+            <img src="img/img4.jpg">
+        </div>
+        <div class="gril div1">
+            <img src="img/img5.jpg">
+        </div>
+        <div class="gril div2">
+            <img src="img/img6.jpg">
+        </div>
+        <div class="gril div1">
+            <img src="img/img7.jpg">
+        </div>
+        <div class="gril div1">
+            <img src="img/img8.jpg">
+        </div>
+        <div class="gril div2">
+            <img src="img/img9.jpg">
+        </div>
+        <div class="gril div1">
+            <img src="img/img10.jpg">
+        </div>
+        <div class="gril div1">
+            <img src="img/img11.jpg">
+        </div>
+        <div class="gril div2">
+            <img src="img/img12.jpg">
+        </div>
+    </div>
+</body>
+
+<!-- <script type="text/javascript">
+	var oDiv1 =document.getElementsByClassName('div1');
+	var oDiv2 =document.getElementsByClassName('div2');
+
+	for (var i = 0; i < oDiv1.length; i++) {
+		oDiv1[i].onmouseover=function(){
+			for (var i = 0; i < oDiv1.length; i++) {
+				if (this===oDiv1[i]) {
+					oDiv1[i].classList.add('be');
+				}else{
+					oDiv1[i].classList.remove('be');
+				}
+			}
+		}
+		oDiv1[i].onmouseout=function(){
+			for (var i = 0; i < oDiv1.length; i++) {
+				oDiv1[i].classList.remove('be');
+			}
+		}
+	}
+
+	for (var i = 0; i < oDiv2.length; i++) {
+		oDiv2[i].onmouseover=function(){
+			for (var i = 0; i < oDiv2.length; i++) {
+				if (this===oDiv2[i]) {
+					oDiv2[i].classList.add('be2');
+				}else{
+					oDiv2[i].classList.remove('be2');
+				}
+			}
+		}
+		oDiv2[i].onmouseout=function(){
+			for (var i = 0; i < oDiv2.length; i++) {
+				oDiv2[i].classList.remove('be2');
+			}
+		}
+	}
+</script> -->
+</html>
