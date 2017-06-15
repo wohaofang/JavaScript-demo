@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>计算器 00.0.1</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    article {
+        text-align: center;
+        margin-top: 70px;
+    }
+    
+    .aa {
+        width: 16px;
+    }
+    </style>
+
+</head>
+
+<body style="background: red">
+    <article>
+        <input type="text" id="first" value="请输入第一个数字" onclick="this.value=''">
+        <br/>
+        <br/>
+        <input type="text" id="second" value="请输入第二个数字" onclick="this.value=''">
+        <br/>
+        <br/>
+        <input type="button" class="aa" value="+" onclick="btn(1)">
+        <input type="button" class="aa" value="-" onclick="btn(2)">
+        <input type="button" class="aa" value="*" onclick="btn(3)">
+        <input type="button" class="aa" value="/" onclick="btn(4)">
+        <br/>
+        <br/>
+        <input type="text" id="jg" value="显示结果">
+    </article>
+   <button id="blue" onclick="lan()">蓝色</button>
+   <button id="green" onclick="lv()">绿色</button>
+</body>
+
+</html>
+     <script type="text/javascript">
+    function btn(t) {
+        var fir = parseInt(document.getElementById("first").value);
+        var sec = parseInt(document.getElementById("second").value);
+        var jg = document.getElementById("jg");
+
+        if (isNaN(fir) || isNaN(sec)) {
+            alert("请正确输入");
+            return;
+        }
+
+        switch (t) {
+            case 1:
+                jg.value = fir + sec;
+                break;
+            case 2:
+                jg.value = fir - sec;
+                break;
+            case 3:
+                jg.value = fir * sec;
+                break;
+            default:
+                if (sec == 0) {
+                    alert("除数不能为零");
+                    return;
+                }
+                jg.value = fir / sec;
+        }
+
+    }
+   
+   function lan(){
+   	 // var lan = document.getElementById("blue");
+   	 document.body.style.background="blue";
+   	 localStorage.background="blue";
+   }
+ function lv(){
+ 	document.body.style.background="green";
+ 	localStorage.background="green"
+ }
+   
+  
+    
+    </script>
