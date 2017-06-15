@@ -1,5 +1,5 @@
-### [骰子.html]（https://github.com/wohaofang/JavaScript-demo/blob/master/%E6%94%BE%E5%A4%A7%E9%95%9C/%E6%94%BE%E5%A4%A7%E9%95%9C.html）
 
+### [骰子.html](https://github.com/wohaofang/JavaScript-demo/blob/master/%E6%94%BE%E5%A4%A7%E9%95%9C/%E6%94%BE%E5%A4%A7%E9%95%9C.html)
 【try ...catch】
 
 屏蔽错误执行下面的代码
