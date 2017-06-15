@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    li {
+        list-style: none;
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        border: 2px solid transparent;
+        margin: 10px;
+    }
+    ul{
+            position: absolute;
+    top: 500px;
+    }
+    
+    #div {
+        position: absolute;
+        left: 0;top: 0;
+        width: 430px;
+        height: 430px;
+    }
+    
+    #div2 {
+        position: absolute;
+        left: 500px;
+        top: 0;
+        width: 430px;
+        height: 430px;
+        border: 1px solid #000;
+        background: url(img/111.jpg) no-repeat -20px -20px;
+    }
+    
+    ul>.active {
+        border: 2px solid #000;
+    }
+    
+    .span {
+        display: block;
+        width: 215px;
+        height: 215px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #eee;
+        opacity: 0.8;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="div">
+        <img id="img" src="img/11.jpg">
+        <span id="span" class="span"></span>
+    </div>
+    <div id="div2"></div>
+    <ul id="ul">
+        <li class="active">
+            <img src="img/1.jpg">
+        </li>
+        <li><img src="img/2.jpg"></li>
+        <li><img src="img/3.jpg"></li>
+        <li><img src="img/4.jpg"></li>
+    </ul>
+    <script type="text/javascript">
+    window.onload = function() {
+        var div = document.getElementById('div');
+        var img = document.getElementById('img');
+        var aimg = ['img/11.jpg', 'img/22.jpg', 'img/33.jpg', 'img/44.jpg'];
+        var aaimg = ['img/111.jpg', 'img/222.jpg', 'img/333.jpg', 'img/444.jpg'];
+        var ul = document.getElementById('ul');
+        var oLi = ul.getElementsByTagName('li');
+        var span = document.getElementById('span');
+        var div2 = document.getElementById('div2');
+
+        for (var i = 0; i < oLi.length; i++) {
+            oLi[i].onmouseover = function() {
+                for (var i = 0; i < oLi.length; i++) {
+                    if (this === oLi[i]) {
+                        oLi[i].classList.add('active');
+                        img.src = aimg[i];
+                        div2.style.backgroundImage='url('+aaimg[i]+')';
+                        // alert(i)
+                    } else {
+                        oLi[i].classList.remove('active');
+
+                    }
+                }
+
+            };
+        }
+
+        var maxTop= div.clientHeight-span.offsetHeight;
+        var maxLeft=div.clientWidth-span.offsetWidth;
+        var imgMaxLeft = 800-div2.offsetWidth;
+        var imgMaxTop  = 800-div2.offsetHeight;
+
+      
+        //alert(maxLeft)
+        div.onmousemove = function(ev) {
+
+            var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+            var scrollLeft = document.documentElement.scrollLeft||document.body.scrollLeft;
+
+            var oEvent = ev || event;
+            var top = oEvent.clientY-span.offsetHeight/2+scrollTop-div.offsetTop;
+            var left = oEvent.clientX-span.offsetWidth/2+scrollLeft-div.offsetLeft;
+
+           
+
+            if (top<0) {
+                top=0;
+            }else if(top>maxTop){
+                top = maxTop;
+            }
+
+             if (left<0) {
+                left=0;
+            }else if(left>maxLeft){
+                left = maxLeft;
+            }
+
+
+            span.style.top = top + 'px';
+            span.style.left = left + 'px';
+            //alert(left);
+            var x = left*imgMaxLeft/maxLeft;
+            var y = top*imgMaxTop/maxTop;
+
+            div2.style.backgroundPosition=-x+'px -'+y+'px';
+        }
+
+            
+
+
+    };
+    </script>
+</body>
+
+</html>

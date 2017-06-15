@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title></title>
+<style>
+* { margin: 0; padding: 0; }
+.box { position: relative; width: 500px; height: 500px; border:5px solid red; margin: 50px auto; }
+.box div { position: absolute; top: 0; left: 0; width: 200px; height: 200px; background-color: #ccc; font-size: 50px;  }
+</style>
+
+</head>
+<body>
+	<div class="box" id="box">
+		<div id="div1"></div>	
+	</div>
+
+<script type="text/javascript">
+	window.onload=function(){
+		var box = document.getElementById('box');
+		var div1 = document.getElementById('div1');
+
+
+
+
+		var maxTop=  box.offsetHeight-div1.offsetHeight-10;
+		var maxLeft= box.offsetWidth-div1.offsetWidth-10;
+
+		
+		box.onmousemove=function(ev){
+			var oEvent = ev||event;
+
+			var top = oEvent.clientY-box.getBoundingClientRect().top-div1.offsetHeight/2;
+			var left = oEvent.clientX-box.offsetLeft-div1.offsetWidth/2;
+
+			if (top <0) {
+				top = 0;
+			}else if(top>maxTop){
+				top = maxTop;
+			}
+
+			if (left <0) {
+				left = 0;
+			}else if(left>maxLeft){
+				left = maxLeft;
+
+			}
+
+			div1.innerHTML=`
+			top:${top}
+			left:${left}
+		`;
+
+			div1.style.left = left+'px';
+			div1.style.top = top+'px';
+
+			
+		
+		};
+
+		function getTtyle(obj,sName){
+			if (obj.currentStyle)
+		{
+			return parseFloat(obj.currentStyle[sName]);
+		}
+		else
+		{
+			return parseFloat(getComputedStyle(obj, false)[sName]);
+		}
+		}
+
+	};
+</script>
+</body>
+</html>

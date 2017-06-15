@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		div{position: absolute;top:50px; width: 400px;height: 400px;margin: 20px;/*border: 2px solid red;*/}
+		#div1{left: 50px;}
+		#div2{display: none; left: 500px; background: url(images/big.jpg) no-repeat -20px -20px  ;}
+		#span{display: none; position: absolute; top: 0;left: 0; width: 100px;height: 100px;opacity: 0.4;background: #eee;}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		<img src="images/small.jpg" id="img">
+		<span id="span"></span>
+	</div>
+	<div id="div2"></div>
+
+
+	<script type="text/javascript">
+		window.onload = function(){
+			var div1 = document.getElementById('div1');
+			var div2 = document.getElementById('div2');
+			var span = document.getElementById('span');
+			var img = document.getElementById('img');
+
+			var maxTop=0;
+			var maxLeft=0;
+			var maxImgLeft =0;
+			var maxImgTop =0;
+			
+
+			div1.onmouseover=function(){
+				span.style.display='block';
+				div2.style.display='block';
+
+
+			 maxTop= div1.offsetHeight - span.offsetHeight;
+			 maxLeft= div1.offsetWidth - span.offsetWidth;
+			 maxImgLeft = 800-div2.offsetWidth;
+			 maxImgTop = 800-div2.offsetHeight;
+
+
+			};
+			div1.onmouseout=function(){
+				span.style.display='none';
+				div2.style.display='none';}
+
+			div1.onmousemove=function(ev){
+				var oEvent = ev||event;
+
+				var top = oEvent.clientY-div1.offsetTop-span.offsetHeight/2;
+				var left = oEvent.clientX-div1.offsetLeft-span.offsetWidth/2;
+
+				if (top<0) {
+					top=0;
+				}else if(top>maxTop){
+					top=maxTop;
+				}
+
+				if (left<0) {
+					left=0;
+				}else if(left>maxLeft){
+					left=maxLeft;
+				}
+
+				span.style.top=top+'px';
+				span.style.left=left+'px';
+
+
+				var x = maxImgLeft*(left/maxLeft);
+				var y = maxImgTop*(top/maxTop);
+
+				div2.style.backgroundPosition=-x+'px -'+y+'px';
+			};
+		};
+	</script>
+</body>
+</html>

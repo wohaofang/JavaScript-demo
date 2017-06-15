@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style type="text/css">
+* {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: #ccc;
+}
+}
+</style>
+</head>
+
+<body>
+    <div id="div1"></div>
+<script type="text/javascript">
+window.onload=function(){
+	var div1 = document.getElementById('div1');
+
+	document.onmousemove=function(ev){
+		oEvent = ev || event
+
+		var left = oEvent.clientX - div1.offsetWidth/2;
+		var top = oEvent.clientY - div1.offsetHeight/2;
+
+		div1.style.left=left+'px';
+		div1.style.top=top+'px';
+	}
+};
+</script>
+</body>
+
+</html>
