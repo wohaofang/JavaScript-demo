@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    #ul1 {
+        width: 600px;
+        margin: 10px auto;
+    }
+    
+    #ul1 li {
+        border: 1px solid #CCC;
+        padding: 4px;
+    }
+    
+    #ul1 span {
+        width: 500px;
+        display: inline-block;
+    }
+    </style>
+</head>
+
+<body>
+    <ul id="ul1">
+        <li>
+            <span>0.中央军委晋升四名上将 习近平颁命令状</span>
+            <a href="javascript:;" class="prev">上移</a>
+            <a href="javascript:;" class="next">下移</a>
+        </li>
+        <li>
+            <span>1.李克强:建良好生态环境向全民提供</span>
+            <a href="javascript:;" class="prev">上移</a>
+            <a href="javascript:;" class="next">下移</a>
+        </li>
+        <li>
+            <span>2.江西涉贪9400万元官员移民后获刑</span>
+            <a href="javascript:;" class="prev">上移</a>
+            <a href="javascript:;" class="next">下移</a>
+        </li>
+        <li>
+            <span>3.31个省级纪委书记平均57.6岁 逾6成异地调任</span>
+            <a href="javascript:;" class="prev">上移</a>
+            <a href="javascript:;" class="next">下移</a>
+        </li>
+    </ul>
+    <script type="text/javascript">
+    var ul = document.getElementById('ul1');
+    var ali = ul.children;
+    var previous = document.getElementsByClassName('prev');
+    var next = document.getElementsByClassName('next');
+
+
+    //向上
+    for (var i = 0; i < next.length; i++) {
+        previous[i].onclick=function(){
+        var oli =this.parentNode;
+        var p = oli.previousElementSibling;
+
+        if (oli == ali[0]) {
+            return alert('到顶了');
+        }
+
+        ul.insertBefore(oli,p);
+        }
+    }
+
+    //向下
+    for (var i = 0; i < next.length; i++) {
+        next[i].onclick=function(){
+            var oli = this.parentNode;
+            
+
+            if (oli == ul.children[ali.length-1]) {
+                return alert("dsdd")
+            }
+            var n = oli.nextElementSibling;
+            ul.insertBefore(n,oli);
+        };
+    }
+
+
+    </script>
+</body>
+
+</html>
+

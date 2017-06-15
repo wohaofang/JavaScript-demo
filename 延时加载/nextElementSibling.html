@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+li { height: 30px; margin: 10px; background-color: #ccc; }
+#li1 { background-color: green; }
+</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li id="li1"></li>
+		<li></li>
+		<li></li>
+	</ul>
+
+	<script type="text/javascript">
+		var li = document.getElementById('li1')
+
+		//var next=li.nextElementSibling;
+		var previous = li.previousElementSibling;
+
+		 previous.style.background='red'
+
+		 next.style.background='red';
+	</script>
+</body>
+</html>

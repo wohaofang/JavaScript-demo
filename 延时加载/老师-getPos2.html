@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>张海瑞 - zhanghairui.com</title>
+<style>
+* { margin: 0; padding: 0; }
+body { margin-left: 10px; padding-left: 300px; }
+#div1 { margin-left: 100px; background-color: #ccc; width: 500px; height: 400px; }
+#div2 { padding-left: 20px; width: 300px; height: 300px; background-color: green; }
+#div3 { width: 100px; height: 100px; background-color: red; }
+</style>
+<script>
+window.onload=function (){
+	var oDiv3=document.getElementById('div3');
+	// parentNode?     offsetParent? 
+
+	// var left=oDiv3.offsetLeft+oDiv3.offsetParent.offsetLeft+oDiv3.offsetParent.offsetParent.offsetLeft;
+
+	// {left:200, top:300}
+	var left=getPos(oDiv3).left
+
+	alert(left);
+
+	function getPos(obj)
+	{
+		var left=0;
+		var top=0;
+		
+		while (obj)
+		{
+			left+=obj.offsetLeft;
+			top+=obj.offsetTop;
+
+			obj=obj.offsetParent;
+			// obj=obj.parentNode; // doucment
+		}
+	
+
+		return {'left':left, 'top':top};
+	}
+};
+</script>
+</head>
+<body>
+	<div id="div1">
+		<div id="div2">
+			<div id="div3"></div>
+		</div>
+	</div>
+</body>
+</html>

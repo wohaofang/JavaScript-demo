@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .div {
+        overflow: hidden;
+        width: 966px;
+        margin: 20px auto;
+    }
+    
+    .div ul {
+        float: left;
+        width: 300px;
+        margin: 10px;
+        border: 1px solid red;
+    }
+    
+    .div li {
+        list-style: none;
+        background: #ccc;
+        margin: 10px 0;
+        font-size: 50px;
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="div">
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+    </div>
+    <script type="text/javascript">
+    window.onload = function() {
+        var aul = document.getElementsByTagName('ul');
+        var arr = [];
+
+        for (var i = 0; i < aul.length; i++) {
+            arr.push(aul[i]);
+        }
+
+        for (var i = 0; i < 25; i++) {
+            var oLi = document.createElement('li');
+            oLi.style.height = rand(100, 300) + 'px';
+            oLi.innerHTML = i;
+
+            arr.sort(function(n1, n2) {
+                return n1.offsetHeight - n2.offsetHeight;
+            });
+
+            arr[0].appendChild(oLi);
+        }
+
+        function rand(n, m) {
+            return Math.floor(Math.random() * (m - n) + n);
+        }
+    };
+    </script>
+</body>
+
+</html>
