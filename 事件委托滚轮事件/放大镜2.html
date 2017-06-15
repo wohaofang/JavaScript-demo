@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		div{position: absolute;top:50px; width: 400px;height: 400px;margin: 20px;/*border: 2px solid red;*/}
+		#div1{left: 50px;}
+		#div2{ left: 500px; background: url(images/big.jpg) no-repeat -20px -20px  ;}
+		#span{display: block; position: absolute; top: 0;left: 0; width: 200px;height: 200px;opacity: 0.4;background: #eee;}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		<img src="images/small.jpg" id="img">
+		<span id="span"></span>
+	</div>
+	<div id="div2"></div>
+
+
+	<script type="text/javascript">
+		var div1 = document.getElementById('div1');
+		var div2 = document.getElementById('div2');
+		var span = document.getElementById('span');
+		var img = document.getElementById('img');
+		var maxLeft = div1.clientWidth-span.offsetWidth;
+		var maxTop = div1.clientWidth-span.offsetWidth;
+
+		var imgMaxLeft = 800-div2.offsetWidth;
+		var imgMaxTop = 800-div2.offsetHeight;
+
+		div1.onmousemove=function(ev){
+			var oEvent = ev || event;
+
+			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+			var left = oEvent.clientX+scrollLeft - div1.offsetLeft-span.offsetWidth/2;
+			var top = oEvent.clientY+scrollTop - div1.offsetTop-span.offsetWidth/2;
+
+			if (top<0) {top=0}
+			else if(top>maxTop){top=maxTop}
+
+				if (left<0) {left=0}
+			else if(left>maxLeft){left=maxLeft}
+
+
+			span.style.left=left+'px';
+			span.style.top=top+'px';
+
+			//放大镜
+
+			var x = left*imgMaxLeft/maxLeft;
+			var y = top*imgMaxTop/maxTop;
+
+			div2.style.backgroundPosition=-x+'px -'+y+'px';
+
+		};
+	</script>
+</body>
+</html>

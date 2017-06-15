@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="t1">
+    <button id="btn">按钮</button>
+    <ul id="ul"></ul>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    	$('#btn').on('click',function(){
+    		$('<li>'+$('#t1').val()+'<a href="javascript:;">删除</a></li>').appendTo('#ul')
+    	});
+
+    	$('ul').on('click','a',function(ev){
+    		this.parentNode.remove();
+    	})
+    </script>
+</body>
+
+</html>

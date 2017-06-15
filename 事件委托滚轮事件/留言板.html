@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="t1">
+	<button id="btn">按钮</button>
+	<ul id="ul"></ul>
+
+	<script type="text/javascript">
+		var t1 = document.getElementById('t1');
+		var btn = document.getElementById('btn');
+		var ul = document.getElementById('ul');
+
+		btn.onclick=function(){
+			var li = document.createElement('li');
+			li.innerHTML = t1.value+'<a href="javascript:;">删除</a>';
+			if (ul.children){
+				ul.insertBefore(li,ul.children[0])
+			}else{
+				ul.appendChild(li);
+			}
+
+			t1.value='';
+			t1.focus();
+		};
+
+		ul.onclick=function(ev){
+			var oEvent = ev||event;
+			var tt = oEvent.target||oEvent.srcElenemt;
+
+			if (tt.tagName == 'A'){
+				tt.parentNode.remove();
+			}
+
+		}
+	</script>
+</body>
+</html>
