@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+<p>1.格式化输出下面对应的中文日期['2010-1-12', '2015-8-8', '2018-11-02', '1990-12-30']</p>
+<span id="span1"></span>
+
+<p>2.北京现在的时间</p>
+<span id="span2"></span>
+
+    <script type="text/javascript">
+   // 任务1
+    function myDate() {
+    	 var span1 = document.getElementById('span1');
+        var oDate = ['2010-1-12', '2015-8-8', '2018-11-02', '1990-12-30']
+        var mDate = new Array();
+        var mYear;
+        var mMonth;
+        var mDay;
+        var str = '';
+        for (var i = 0; i < 4; i++) {
+            mDate[i] = oDate[i].split('-');
+            mYear = parseInt(mDate[i][0]);
+            mMonth = parseInt(mDate[i][1]);
+            mDay = parseInt(mDate[i][2]);
+
+            //月份加0
+            if (mMonth < 10) {
+                mMonth = '0' + mMonth;
+            }
+
+            //日期加0
+            if (mDay < 10) {
+                mDay = '0' + mDay;
+            }
+            span1.innerHTML +=mYear + '年' + mMonth + '月' + mDay + '日<br>';
+        }
+        
+    }
+    myDate();
+
+    //任务2
+    function setTime(){
+    	var span2 = document.getElementById('span2');
+    	setInterval(function(){
+    	var today = new Date();
+    	var year = today.getFullYear();
+    	var month = today.getMonth()+1;
+    	var day = today.getDate();
+    	var hour = today.getHours();
+    	var  minute= today.getMinutes();
+    	var second = today.getSeconds();
+    	
+
+    	span2.innerText = '北京时间：'+year+'-'+month+'-'+day+' '+hour+':'+ minute+':'+second;
+    	
+    	},1000)
+    }
+   setTime()
+    </script>
+</body>
+
+</html>
