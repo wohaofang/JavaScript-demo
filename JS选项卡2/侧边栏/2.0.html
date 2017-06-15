@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    input {
+        display: block;
+        width: 80px;
+        height: 30px;
+        margin: 50px auto;
+    }
+    
+    div {
+        display: none;
+        width: 200px;
+        height: 200px;
+        background: #ccc;
+        margin: 0 auto;
+    }
+    </style>
+</head>
+
+<body>
+    <input type="button" id="btn" value="显示,隐藏">
+    <div id="div1"></div>
+    <script type="text/javascript">
+    var btn = document.getElementById('btn');
+    var div1 = document.getElementById('div1');
+    var timer = null;
+
+    btn.onmouseover = function() {
+        timer=setTimeout(function() {
+            div1.style.display = 'block';
+        }, 100);
+    };
+    btn.onmouseout = function() {
+    	clearInterval(timer);
+        div1.style.display = 'none';
+    };
+    </script>
+</body>
+
+</html>

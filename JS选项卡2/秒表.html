@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="00:00" id="text">
+    <button id="btn1">开始</button>
+    <button disabled id="btn2">暂停</button>
+    <button id="btn3">终止</button>
+    <script type="text/javascript">
+    var txt = document.getElementById('text');
+    var btn1 = document.getElementById('btn1');
+    var btn2 = document.getElementById('btn2');
+    var btn3 = document.getElementById('btn3');
+    var n = 0;
+    var m = 0;
+    var s = 0;
+    var timer = null;
+
+    btn1.onclick = function() {
+        timer = setInterval(function() {
+            n++;
+            m = pan(parseInt(n / 60));
+            s = pan(parseInt(n % 60));
+            txt.value = m + ':' + s;
+        }, 100);
+        btn2.disabled = false;
+        btn1.disabled = true;
+
+    };
+    btn2.onclick = function() {
+        clearInterval(timer);
+        btn1.disabled = false;
+        btn2.disabled = true;
+    };
+    btn3.onclick = function() {
+        btn1.disabled = false;
+        btn2.disabled = true;
+        clearInterval(timer);
+        n = m = s = 0;
+        txt.value = '00:00';
+    };
+
+    function pan(n) {
+        if (n < 10) {
+            return '0' + n;
+        } else {
+            return '' + n;
+        }
+    }
+    </script>
+</body>
+
+</html>

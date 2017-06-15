@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: "微软雅黑";
+    }
+    
+    ul,
+    li {
+        list-style: none;
+    }
+    
+    .content {
+        margin: 50px 0 0 50px;
+        width: 250px;
+        height: 129px;
+        background: #ccc;
+    }
+    
+    h3 {
+        width: 220px;
+        margin: 0 auto;
+        line-height: 35px;
+        height: 35px;
+        border-bottom: 1px solid #0ff;
+    }
+    
+    li {
+        cursor: pointer;
+        width: 220px;
+        margin: 0 auto;
+        line-height: 30px;
+        height: 30px;
+        border-bottom: 1px solid #0ff;
+        overflow: hidden;
+    }
+    
+    li>span {
+        display: block;
+        width: 0px;
+        height: 0px;
+        border-top: 5px solid #000;
+        border-right: 5px solid #000;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid transparent;
+        transform: rotateZ(45deg);
+        float: right;
+        margin: 11px 9px 0 0;
+    }
+    
+    .text {
+        display: none;
+        position: relative;
+        left: 315px;
+        top: -155px;
+        width: 500px;
+        height: 300px;
+        /*background: #ccc;*/
+    }
+    
+    .text div {
+        width: 300px;
+        height: 235px;
+        border-radius: 19px;
+        background: #0ff;
+        position: relative;
+        display: none;
+        font-size: 20px;text-align: center;line-height: 235px;
+    }
+    .text div.blo{
+    	display: block;
+    }
+    
+    .span1 {
+        position: absolute;
+        top: 74px;
+        left: -5px;
+        display: block;
+        width: 0px;
+        height: 0px;
+        border-top: 5px solid #0ff;
+        border-right: 5px solid #0ff;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid transparent;
+        transform: rotateZ(-135deg);
+    }
+    
+    .span2 {
+        position: absolute;
+        top: 105px;
+        left: -5px;
+        display: block;
+        width: 0px;
+        height: 0px;
+        border-top: 5px solid #0ff;
+        border-right: 5px solid #0ff;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid transparent;
+        transform: rotateZ(-135deg);
+    }
+    
+    .span3 {
+        position: absolute;
+        top: 135px;
+        left: -5px;
+        display: block;
+        width: 0px;
+        height: 0px;
+        border-top: 5px solid #0ff;
+        border-right: 5px solid #0ff;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid transparent;
+        transform: rotateZ(-135deg);
+    }
+    .bg{
+    	background: #ff0;
+    }
+
+    </style>
+</head>
+
+<body>
+    <div id="tit" class="content">
+        <h3>分支机构</h3>
+        <ul>
+            <li >境内分支机构 <span></span></li>
+            <li>海外分支机构 <span></span></li>
+            <li>主要分支机构 <span></span></li>
+        </ul>
+    </div>
+    <div id="text" class="text">
+        <div>境内分支机构<span class="span1"></span></div>
+        <div>海外分支机构<span class="span2"></span></div>
+        <div>主要分支机构<span class="span3"></span></div>
+    </div>
+
+    <script type="text/javascript">
+    	var	oLi = document.getElementsByTagName('li');
+    	var cont = document.getElementById('text');
+    	var oDiv = cont.getElementsByTagName('div');
+        var tit = document.getElementById('tit');
+        var timer = null;
+
+      
+
+
+
+    	for (var i = 0; i < oLi.length; i++) {
+    		oLi[i].onmouseover=function(){
+                  for (var i = 0; i < oLi.length; i++) {
+                  	if(this===oLi[i]){
+                           oLi[i].className='bg';
+                           oDiv[i].className='blo';
+                  	}else{
+                  		oLi[i].className='';
+                  		oDiv[i].className='';
+                  	}
+                  }
+    		};
+    		oLi[i].onmouseout=function(){
+                  for (var i = 0; i < oLi.length; i++) {
+                  	oLi[i].className='';
+                  		oDiv[i].className='';
+                  }
+              }
+
+    	}
+    </script>
+</body>
+
+</html>

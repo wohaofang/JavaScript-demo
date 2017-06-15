@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>无标题文档</title>
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    
+    li {
+        list-style: none;
+    }
+    
+    img {
+        border: none;
+    }
+    
+    .box {
+        width: 670px;
+        height: 240px;
+        margin: 50px auto;
+        position: relative;
+    }
+    
+    .imgBox img {
+        width: 670px;
+        height: 240px;
+        display: block;
+    }
+    
+    .num {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+    }
+    
+    .num li {
+        float: left;
+        margin-right: 5px;
+        width: 22px;
+        height: 22px;
+        background: #999;
+        color: #FFF;
+        line-height: 22px;
+        text-align: center;
+        border-radius: 50% 50%;
+        font-family: "微软雅黑";
+        font-size: 12px;
+    }
+    
+    .num .active {
+        background: #E4393C;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="imgBox">
+            <a href="javascript:;"><img id="imgs" src="img/pic1.jpg" alt=""></a>
+        </div>
+        <ul class="num" id="num">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript">
+window.onload = function() {
+    var aImg = ['img/pic1.jpg', 'img/pic2.jpg', 'img/pic3.jpg', 'img/pic4.jpg', 'img/pic5.jpg', 'img/pic6.jpg'];
+    var oImg = document.getElementById('imgs');
+    var oLi = document.getElementsByTagName('li');
+    var n = 0;
+    var timer = setInterval(aaa, 1000);
+
+  
+
+
+// 移入移除 判断
+
+    for (var i = 0; i < oLi.length; i++) {
+        oLi[i].index = i;
+        oLi[i].onmouseover = function() {
+            clearInterval(timer);
+            for (var i = 0; i < oLi.length; i++) {
+                oLi[i].classList.remove('active');
+            }
+            this.classList.add('active');
+
+            oImg.src = aImg[this.index];
+
+
+        };
+        oLi[i].onmouseout = function() {
+            timer = setInterval(aaa, 1000);
+            n = this.index;
+
+        }
+
+    }
+// 自己循环
+  function aaa() {
+        for (var i = 0; i < oLi.length; i++) {
+            oLi[i].className = '';
+        }
+        n++;
+        if (n == 6) {
+            n = 0;
+        }
+        oLi[n].className = 'active';
+        oImg.src = aImg[n];
+
+    }
+
+    // for(var i=0; i<aLi.length; i++){
+    //             aLi[i].index = i;
+    //             aLi[i].onmouseover = function (){
+    //                 clearInterval(timer);
+    //                 for(var i=0; i<aLi.length; i++){
+    //                     aLi[i].classList.remove('active');
+    //                 }
+    //                 this.classList.add('active');
+    //                 oImg.innerHTML = '<a href="javascript:;"><img src="img/pic' + (this.index+1) + '.jpg"></a>';
+    //             };
+    //             aLi[i].onmouseout = function (){
+    //                 n = this.index;
+    //                 timer = setInterval(move,2500);
+    //             };
+    //         }
+
+
+};
+</script>
+
+</html>

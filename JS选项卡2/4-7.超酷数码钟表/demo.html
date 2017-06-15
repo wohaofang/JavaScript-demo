@@ -1,0 +1,98 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>超酷数码钟表</title>
+    <link href="style/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div id="clock" class="date">
+        <h2><img src="images/title.png" /></h2>
+        <div id="year" class="year">
+            <img class="num" src="images/2.png" alt="0" />
+            <img class="num" src="images/0.png" alt="0" />
+            <img class="num" src="images/1.png" alt="0" />
+            <img class="num" src="images/7.png" alt="0" />
+            <img src="images/year.png" alt="year" />
+            <img class="num" src="images/0.png" alt="0" />
+            <img class="num" src="images/3.png" alt="0" />
+            <img src="images/month.png" alt="month" />
+            <img class="num" src="images/2.png" alt="0" />
+            <img class="num" src="images/4.png" alt="0" />
+            <img src="images/seven.png" alt="seven" />
+        </div>
+        <div id="time" class="time">
+            <img class="num" src="images/0.png" alt="0" />
+            <img class="num" src="images/0.png" alt="0" />
+            <img src="images/sign.png" alt="sign" />
+            <img class="num" src="images/0.png" alt="0" />
+            <img class="num" src="images/0.png" alt="0" />
+            <img src="images/sign.png" alt="sign" />
+            <img class="num" src="images/0.png" alt="0" />
+            <img class="num" src="images/0.png" alt="0" />
+            <img class="pos2" src="images/week.png" alt="week" />
+            <img class="num2" src="images/five.png" alt="one" />
+        </div>
+    </div>
+</body>
+<!-- <script type="text/javascript">
+var time = document.getElementById('time');
+var oNum = time.getElementsByClassName('num');
+
+
+setInterval(function() {
+    var date = new Date();
+    var h = date.getHours();
+    var m = date.getMinutes();
+    var s = date.getSeconds();
+
+
+
+}, 1000);
+</script>
+ -->
+<script>
+    function toDou(iNum) {
+        return iNum < 10 ? '0' + iNum : '' + iNum;
+    }
+    var arr = ['seven', 'one', 'two', 'three', 'four', 'five', 'six'];
+    window.onload = function() {
+        var oYearBox = document.getElementById('year');
+        var oTimeBox = document.getElementById('time');
+        var aImg = oYearBox.getElementsByTagName('img');
+        var aImg2 = oTimeBox.getElementsByTagName('img');
+
+        function tick() {
+            var oDate = new Date();
+            var Y = oDate.getFullYear();
+            var M = oDate.getMonth() + 1;
+            var D = oDate.getDate();
+            var h = oDate.getHours();
+            var m = oDate.getMinutes();
+            var s = oDate.getSeconds();
+            var W = oDate.getDay();
+            var str = Y + ' ' + toDou(M) + ' ' + toDou(D);
+            for (var i = 0; i < aImg.length; i++) {
+                if (aImg[i].className == 'num') {
+                    aImg[i].src = 'images/' + str.charAt(i) + '.png';
+                }
+            }
+            var str2 = toDou(h) + ':' + toDou(m) + ':' + toDou(s);
+            for (var i = 0; i < aImg2.length; i++) {
+                if (aImg2[i].className == 'num') {
+                    aImg2[i].src = 'images/' + str2.charAt(i) + '.png';
+                }
+                if (aImg2[i].className == 'num2') {
+                    aImg2[i].src = 'images/' + arr[W] + '.png';
+                }
+            }
+        }
+        tick();
+        setInterval(tick, 1000);
+    };
+    </script>
+
+
+</html>
