@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>简易计算器</title>
+</head>
+
+<body>
+    <input type="text" id="t1" />
+    <select id="s1">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="text" id="t2" />
+    <input type="button" value="计算" id="btn" />
+    <script type="text/javascript">
+    var t1 = document.getElementById('t1');
+    var t2 = document.getElementById('t2');
+
+    var btn = document.getElementById('btn');
+
+    btn.onclick = function() {
+        var s1 = document.getElementById('s1').value;
+        var t11 = parseFloat(t1.value);
+        var t22 = parseFloat(t2.value);
+
+        var ds = '';
+        switch (s1) {
+            case '+':
+                ds = t11 + t22;
+                break;
+            case '-':
+                ds = t11 - t22;
+                break;
+            case '*':
+                ds = t11 * t22;
+                break;
+            case '/':
+                ds = t11 / t22;
+                break;
+        }
+        // return ds;
+        alert(ds);
+    };
+    </script>
+</body>
+
+</html>

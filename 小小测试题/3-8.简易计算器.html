@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>简易计算器</title>
+</head>
+
+<body>
+    <input type="text" id="ipt1" />
+    <select id="sel">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="text" id="ipt2" />
+    <input type="button" value="计算" id="btn" />
+    <script type="text/javascript">
+    var btn = document.getElementById('btn');
+
+    btn.onclick = function() {
+        var ipt1 = parseInt(document.getElementById('ipt1').value);
+        var ipt2 = parseInt(document.getElementById('ipt2').value);
+        var sel = document.getElementById('sel').value;
+
+        var ds='';
+        switch (sel) {
+            case '+':
+                 ds=ipt1 + ipt2;
+                 break;
+            case '-':
+                 ds=ipt1 - ipt2;
+                 break;
+            case '*':
+                 ds=ipt1 * ipt2;
+                 break;
+            case '/':
+                 ds=ipt1 / ipt2;
+                 break;
+        }
+        alert(ds);
+    }
+    </script>
+</body>
+
+</html>

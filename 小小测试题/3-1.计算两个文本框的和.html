@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>计算两个文本框的和</title>
+    
+</head>
+
+<body>
+    <input type="text" id="t1">+
+    <input type="text" id="t2">
+    <input type="button" value="计算" id="btn1">
+    <script type="text/javascript">
+   var btn1 = document.getElementById('btn1');
+
+    btn1.onclick = function() {
+
+       var ipt1 = Number(document.getElementById('t1').value);
+       var ipt2 = Number(document.getElementById('t2').value);
+        if (isNaN(ipt1) || isNaN(ipt2)) {
+    		return alert('请填入数字');
+    	}
+        var sum = ipt1 + ipt2;
+        alert(sum)
+    }
+    </script>
+</body>
+
+</html>

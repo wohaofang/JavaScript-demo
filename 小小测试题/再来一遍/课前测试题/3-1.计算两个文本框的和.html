@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>计算两个文本框的和</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <input type="text" id="t1">+
+    <input type="text" id="t2">
+    <input type="button" value="计算" id="btn1">
+    <script type="text/javascript">
+    var t1 = document.getElementById('t1');
+    var t2 = document.getElementById('t2');
+    var btn1 = document.getElementById('btn1');
+
+    btn1.onclick = function() {
+        if (t1.value != '' && t2.value != '') {
+            var t11 = Number(t1.value);
+            var t22 = Number(t2.value);
+
+            if (isNaN(t11) && isNaN(t22)) {
+                alert('两个数都不是数字');
+            } else if (isNaN(t11)) {
+                alert('第一个不是数字');
+            } else if (isNaN(t22)) {
+                alert('第2个不是数字');
+            } else {
+                var sum = t11 + t22;
+                alert(sum);
+            }
+        } else {
+            alert('不能为空')
+        }
+
+    };
+    </script>
+</body>
+
+</html>

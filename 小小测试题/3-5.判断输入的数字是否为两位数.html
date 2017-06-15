@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>判断输入的数字是否为两位数</title>
+</head>
+<body>
+<input type="text" id="ipt" /><input type="button" id="btn" value="判断是否为两位数" />
+
+<script type="text/javascript">
+	var btn = document.getElementById('btn');
+	btn.onclick=function(){
+		var ipt = parseInt(document.getElementById('ipt').value);
+
+		if (ipt>=10 && ipt<=99) {
+			alert(ipt);
+		}else if(ipt<10 && ipt>=0){
+			alert('这是一位数');
+		}else if(ipt>99){
+			alert('比两位数大');
+		}else{
+			alert('负数');
+		}
+	}
+</script>
+</body>
+</html>

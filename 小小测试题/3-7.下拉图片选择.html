@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>下拉选择图片</title>
+</head>
+
+<body>
+<img id="img" src="img/img1.jpg" width="200" height="200" alt="图片1" /><br>
+<span id="span1">图片1</span><br>
+<select id="s1" onchange="my()">
+	<option value="1">图片1</option>
+	<option value="2">图片2</option>
+	<option value="3">图片3</option>
+</select>
+
+<script type="text/javascript">
+	var aImg=['img/img1.jpg','img/img2.jpg','img/img3.jpg'];
+	var aSpan = ['图片1','图片2','图片3']
+	var sel = document.getElementById('s1');
+	var oOpt=sel.getElementsByTagName('option');
+	var oSpan = document.getElementById('span1');
+	var oImg = document.getElementById('img');
+
+	sel.onchange=function(){
+		//var i =parseInt(sel.value)-1;
+
+		var i = sel.selectedIndex;//当前被选中的下标
+		oSpan.innerHTML=oImg.alt=aSpan[i];
+		oImg.src=aImg[i];
+	};
+	// for (var i = 0; i < oOpt.length; i++) {
+	// 	oOpt[i].onclick=function(){
+	// 		for(var i = 0; i < oOpt.length; i++){
+	// 			if (this===oOpt[i]) {
+	// 				oImg.src=aImg[i];
+	// 				oSpan.innerHTML=aSpan[i];
+	// 			}else{
+	// 				oImg.src='';
+	// 				oSpan.innerHTML='';
+	// 			}
+	// 		}
+	// 	}
+	// }
+</script>
+</body>
+</html>
